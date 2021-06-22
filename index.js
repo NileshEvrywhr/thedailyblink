@@ -4,9 +4,9 @@ const layouts     = require('metalsmith-layouts');
 const pdf         = require('metalsmith-pdf');
 
 Metalsmith(__dirname)
-  .source('src')
-  .destination('dst')
-  .clean(true)
+  .source('/home/ubuntu/blinkist/en/daily/')
+  .destination('/home/ubuntu/legendary-literate/static/en/daily/')
+  .clean(false)
   .use(markdown())
   .use(layouts({
     engine: 'handlebars'
@@ -17,7 +17,8 @@ Metalsmith(__dirname)
     pageSize: "letter"
   }))
   .build(function(err, files) {
-      if (err) { 
-        throw err; 
+      if (err) {
+	console.log(err)
+        throw err;
       }
   });
