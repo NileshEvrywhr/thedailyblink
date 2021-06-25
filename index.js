@@ -5,8 +5,8 @@ const pdf         = require('metalsmith-pdf');
 
 Metalsmith(__dirname)
   .source('/home/ubuntu/blinkist/en/daily/')
-  .destination('/home/ubuntu/legendary-literate/static/en/daily/')
-  .clean(false)
+  .destination('/home/ubuntu/legendary-literate/src/data/today/')
+  .clean(true)
   .use(markdown())
   .use(layouts({
     engine: 'handlebars'
