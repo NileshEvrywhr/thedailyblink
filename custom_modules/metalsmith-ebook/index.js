@@ -5,25 +5,26 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var my_plugin = function (options) {
     return function (files, metalsmith, done) {
-        var destPath = metalsmith.destination()+'/';
+        // console.log(files)
+        var destPath = metalsmith.destination();
         var metadata = metalsmith.metadata();
         // THROW ERROR IF TITLE ATTRIBUTE IS NOT SET
         if (!metadata.title) {
             throw("YOU MUST SET TITLE ATTRIBUTE OF METADATA");
-        }else{
+        } else {
             var bookTitle = metadata.title;
         }
         Object.keys(files).forEach(function(file){
+            console.log(files[file].path)
             var contents = files[file].contents.toString();
-            // console.log(contents)
-            var path = files[file].path + '/';
+            var path = '/';
             var title = files[file].title;
             var p0 = new Promise(
                 function(resolve, reject){
                     if (files[file].path) {
-                        var filePath = destPath + path + title + '.pdf';
+                        var filePath = destPath + path + title + '.pdf';                        
                         createPDF(contents, options.pdf, filePath);
-                    } else {
+                    } else {                        
                         var filePath = destPath + bookTitle + '.pdf';
                         createPDF(contents, options.pdf, filePath);
                     }
