@@ -10,7 +10,7 @@
         font-family: 'Lato';
         font-weight: 500;
         font-size: 12px;
-        background: rgb(255, 255, 255);
+        background: #f2efe9;
         -webkit-print-color-adjust: exact;
         box-sizing: border-box;
       }
@@ -20,7 +20,7 @@
         height: 90mm;
         width: 50mm;
         display: block;
-        background: white;
+        background: #f2efe9;
         page-break-after: always;
         margin: 10px;
         overflow: hidden;
@@ -28,7 +28,7 @@
 
       @media print {
         body {
-          background: white;
+          background: #f2efe9;
         }
 
         .page {
@@ -51,10 +51,11 @@
 
       .group {
         margin-top: 3mm;
+        page-break-inside: avoid;
       }
 
       .line {
-        color: white;
+        color: #f2efe9;
         position: relative;
       }
 
