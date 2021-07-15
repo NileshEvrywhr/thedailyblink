@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="{{ description }}" />
     <title>{{ title }}</title>
     <style>
       html, body {
@@ -71,23 +72,18 @@
       }
 
     </style>
-    <meta name="description" content="{{ description }}" />
 </head>
 <body>
     <div class="page">
         <h1 class="center">{{{ title }}}</h1>
     </div>
 
-    {{#each collections.chapters }}
-        
-    <div class="chapter-divider">
-        <div class="page group">
+    {{#each collections.chapters }}        
+        {{!-- <div class="page group"> --}}
         {{{contents}}}
-		
-        </div>
-
-    </div>
-		
+        {{!-- </div> --}}
+        <div class="chapter-divider"></div>
     {{/each}}
+
 </body>
 </html>
